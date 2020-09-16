@@ -16,26 +16,7 @@ name: ci-workflow
     # target_repository: home of the target_pr, which is the source repo (gruntwork-io/terratest)
     # target_pr: pr number on the source repo (e.g. 14, 25, etc.)
 
-on:
-  workflow_dispatch:
-    inputs:
-      repo:
-        description: 'Repository info'
-        required: true
-      branch:
-        description: 'Name of the branch'
-        required: true
-      target_repository:
-        description: 'Name of the official terratest repo'
-        required: false
-        default: 'gruntwork-io/terratest'
-      target_pr:
-        description: 'PR number on the official terratest repo'
-        required: false
-      skip_provider_registration:
-        description: 'When set to true, terraform will skip provider registration (see: https://www.terraform.io/docs/providers/azurerm/index.html#skip_provider_registration for more information)'
-        required: true
-        default: 'false'
+on: [push]
 
 jobs:
   ci-job:
